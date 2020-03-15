@@ -46,7 +46,7 @@ The **MotionPlanning** class is the equivalent to the *BackyardFlyer* class and 
 
 Function | Equal | Description
 ---|---|---
-__init__ | yes | The initialization of all variables and the registered callback functions are the same. The drone starts in manual mode flight state.
+init | yes | The initialization of all variables and the registered callback functions are the same. The drone starts in manual mode flight state.
 local_position_callback | no | The local position callback handles the takeoff state, the flight maneuvers from waypoint to waypoint and the transition to the landing operation if all waypoints have been visited. The difference between the BackyardFlyer and the MotionPlanning handling is that the motion planner has a dedicated state where the waypoints are determined, so the "calculate_box" call is not present anymore.
 velocity_callback | yes | The velocity callback takes care for ending the landing sequence by moving to the disarmed state for drone disarming.
 state_callback | no | The state callback function handles the transition between the available flight states. In MotionPlanning the additional *PLANNING* state is handled. After the drone is armed, the *plan_path* function is called to determine the path and waypoints the drone should fly. During this, the planning state is engaged. In the end, the plan_path operation is some kind of equivalent to the calculate_box method in the BackyardFlyer.
